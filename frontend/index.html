@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LioraShop 🌸 Натуральна та органічна косметика ручної роботи</title>
+    <meta
+      name="description"
+      content="LioraShop — гармонія природи, чистих гідролатів та цінних олій. Промо-лендінг для переходу до нашого Django-магазину зі знижками!"
+    />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+
+    <!-- Google Fonts: Cormorant Garamond (елегантні заголовки) та Plus Jakarta Sans (сучасний текст) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Головний контейнер додатку -->
+    <div id="app">
+      <!-- Стан завантаження за замовчуванням (Skeleton / Spinner) -->
+      <div class="initial-loader" id="initial-loader">
+        <div class="loader-content">
+          <div class="flower-spin">🌸</div>
+          <h2>LioraShop</h2>
+          <p>Завантажуємо природну красу...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальне вікно вибору ролі (Початковий екран) -->
+    <div id="role-modal-container"></div>
+
+    <!-- Головний TypeScript скрипт -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "liorashop-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LioraShop - Fullstack промо-лендінг на Payload CMS, TypeScript та Neon PostgreSQL",
+  "scripts": {
+    "dev": "npm run dev:frontend",
+    "dev:all": "concurrently \"npm run dev:cms\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:cms": "npm --prefix cms run dev",
+    "build": "npm --prefix frontend run build && npm --prefix cms run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:cms": "npm --prefix cms run build",
+    "preview": "npm --prefix frontend run preview"
+  },
+  "keywords": [
+    "liorashop",
+    "payloadcms",
+    "typescript",
+    "vite",
+    "neon",
+    "postgresql",
+    "landing-page",
+    "cosmetics"
+  ],
+  "author": "Гусаров, Юрчишин (Студенти ІТ коледжу)",
+  "license": "MIT"
+}

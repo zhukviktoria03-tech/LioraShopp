@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LioraShop 🌸 Натуральна косметика ручної роботи (Демо)</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="initial-loader">
+        <div class="loader-content">
+          <div class="flower-spin">🌸</div>
+          <h2>LioraShop</h2>
+          <p>Завантажуємо природну косметику...</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="role-modal-container"></div>
+
+    <script type="module">
+      import { FALLBACK_COMMON, FALLBACK_PAGE } from './src/services/api.js'
+      // Автономний запуск для миттєвої перевірки у браузері
+    </script>
+    <script>
+      // Fallback standalone runner script
+      const COMMON_DATA = {
+        header: {
+          brandName: 'LioraShop',
+          tagline: 'Натуральна косметика ручної роботи',
+          navItems: [
+            { label: 'Чому ми?', url: '#why-us' },
+            { label: 'Переваги', url: '#benefits' },
+            { label: 'Бестселери', url: '#products' },
+            { label: 'Відгуки', url: '#reviews' },
+            { label: 'FAQ', url: '#faq' },
+          ],
+          hotlinePhone: '+380 (67) 890-45-12',
+          djangoShopUrl: 'https://liorashop-django.example.com/',
+        },
+        footer: {
+          brandName: 'LioraShop',
+          description: 'LioraShop — гармонія чистої природи, органічних екстрактів та дбайливого догляду за вашою шкірою щодня.',
+          copyright: '© 2026 LioraShop. Всі права захищено. Студентський звіт з практики.',
+          djangoNotice: 'Цей промо-лендінг розроблено на Payload CMS & TypeScript для залучення клієнтів до основного Django-магазину.',
+          socialLinks: [
+            { name: 'Instagram', url: 'https://instagram.com/liorashop' },
+            { name: 'Telegram', url: 'https://t.me/liorashop' },
+            { name: 'TikTok', url: 'https://tiktok.com/@liorashop' }
+          ]
+        }
+      };
+
+      const PAGE_DATA = {
+        title: 'Головна сторінка LioraShop — Натуральна косметика',
+        blocks: [
+          {
+            type: 'hero',
+            badge: '🌿 100% Органічні формули без хімікатів',
+            title: 'Ніжність природи для твого щоденного сяйва',
+            subtitle: 'Забудьте про агресивні сульфати та штучні консерванти. LioraShop — це авторська косметика ручної роботи на основі чистих рослинних екстрактів, гідролатів та цінних олій. Переконайтеся самі!',
+            primaryButtonText: 'Перейти до покупок в Django-магазин 🛍️',
+            primaryButtonUrl: 'https://liorashop-django.example.com/catalog/',
+            secondaryButtonText: 'Чому саме LioraShop? ✨',
+            secondaryButtonUrl: '#why-us',
+            stats: [
+              { value: '100%', label: 'Чисті органічні компоненти' },
+              { value: '5 000+', label: 'Щасливих клієнток' },
+              { value: '0%', label: 'Штучних барвників та парабенів' },
+              { value: '4.9/5', label: 'Середня оцінка якості' }
+            ]
+          },
+          {
+            type: 'whyUs',
+            sectionTag: 'ПЕРЕВАГИ НАД МАСМАРКЕТОМ',
+            title: 'Чому варто обрати косметику LioraShop замість звичайного масмаркету?',
+            description: 'Більшість засобів з мас-маркету містять до 80% води, дешеві нафтопродукти та силікони, що дають лише тимчасовий візуальний ефект. LioraShop працює на клітинному рівні.',
+            comparisonItems: [
+              {
+                feature: 'Основа складу',
+                lioraAdvantage: 'Квіткові гідролати та натуральні рослинні олії першого холодного віджиму',
+                massMarketDisadvantage: 'Мінеральні олії (продукти нафтопереробки), силікони та дешева вода'
+              },
+              {
+                feature: 'Свіжість та терміни',
+                lioraAdvantage: 'Виготовляється невеликими партіями щотижня, максимальна концентрація активів',
+                massMarketDisadvantage: 'Зберігається на складах роками завдяки токсичним парабенам та консервантам'
+              },
+              {
+                feature: 'Турбота про тварин та довкілля',
+                lioraAdvantage: 'Етичне Cruelty-Free виробництво, біорозкладна та скляна еко-упаковка',
+                massMarketDisadvantage: 'Тестування на тваринах і непереробний дешевий пластик'
+              },
+              {
+                feature: 'Результат на шкірі',
+                lioraAdvantage: 'Глибоке накопичувальне відновлення природного мікробіому та сяйво',
+                massMarketDisadvantage: 'Штучна плівка силікону, що забиває пори та сушить шкіру'
+              }
+            ]
+          },
+          {
+            type: 'benefits',
+            title: 'Фундаментальні принципи бренду LioraShop',
+            items: [
+              {
+                icon: '🌱',
+                title: 'Сертифікована органіка',
+                text: 'Кожна рослина, ефірна олія та екстракт проходять лабораторний контроль якості та чистоти.'
+              },
+              {
+                icon: '🐰',
+                title: '100% Cruelty-Free',
+                text: 'Ми категорично проти будь-якого тестування на тваринах. Наші формули безпечні від природи.'
+              },
+              {
+                icon: '✨',
+                title: 'Дерматологічний баланс',
+                text: 'Усі засоби адаптовані під чутливу шкіру, підтримують фізіологічний pH 5.5 та не викликають алергії.'
+              },
+              {
+                icon: '📦',
+                title: 'Швидка доставка з Django-складу',
+                text: 'Оформлюйте замовлення в один клік у нашому Django-магазині з відправкою день у день по всій Україні.'
+              }
+            ]
+          },
+          {
+            type: 'productsShowcase',
+            tag: 'БЕСТСЕЛЕРИ LIORASHOP',
+            title: 'Улюблені засоби наших покупців',
+            subtitle: 'Погляньте на ці хіти, а для вибору повного асортименту, об\'ємів та оформлення кошика переходьте до нашого основного Django-магазину!',
+            products: [
+              {
+                title: 'Крем «Ніжна Роса» з центелою та керамідами',
+                category: 'Догляд за обличчям',
+                price: '480 ₴',
+                oldPrice: '560 ₴',
+                description: 'Глибоке зволоження 24 години, відновлення захисного бар\'єру шкіри та зняття почервонінь.',
+                badge: 'ХІТ ПРОДАЖІВ 🔥',
+                djangoLink: 'https://liorashop-django.example.com/product/dew-cream/'
+              },
+              {
+                title: 'Антиоксидантна сироватка з Вітаміном C 15%',
+                category: 'Сироватки',
+                price: '540 ₴',
+                oldPrice: '620 ₴',
+                description: 'Освітлює пігментацію, стимулює вироблення природного колагену та дарує бездоганний тон.',
+                badge: 'ТОП ВИБІР ✨',
+                djangoLink: 'https://liorashop-django.example.com/product/vitamin-c-serum/'
+              },
+              {
+                title: 'Трояндовий гідролат дистиляції сорту Дамаська',
+                category: 'Тонізація',
+                price: '290 ₴',
+                oldPrice: '',
+                description: '100% чистий дистилят пелюсток троянд. М\'яко звужує пори, освіжає та готує до крему.',
+                badge: 'NEW 🌸',
+                djangoLink: 'https://liorashop-django.example.com/product/rose-hydrolat/'
+              },
+              {
+                title: 'Делікатна пінка з екстрактом ромашки та вівса',
+                category: 'Очищення',
+                price: '340 ₴',
+                oldPrice: '390 ₴',
+                description: 'М\'яке фізіологічне очищення без відчуття стягнутості навіть для сухої та атопічної шкіри.',
+                badge: 'ECO CHOICE 🌿',
+                djangoLink: 'https://liorashop-django.example.com/product/chamomile-foam/'
+              }
+            ]
+          },
+          {
+            type: 'reviews',
+            title: 'Щирі відгуки наших покупців',
+            reviewsList: [
+              {
+                author: 'Олена Ковальчук',
+                city: 'Київ',
+                rating: 5,
+                comment: 'Раніше користувалася люксовою косметикою, але постійно турбувала сухість. Спробувала крем «Ніжна Роса» у LioraShop — і це кохання! Шкіра нарешті відпочила і сяє.',
+                productPurchased: 'Крем «Ніжна Роса»'
+              },
+              {
+                author: 'Марія Мельник',
+                city: 'Львів',
+                rating: 5,
+                comment: 'Дуже зручно, що на цьому промо-лендінгу можна прочитати все про натуральний склад і одразу перейти в Django-магазин та оформити замовлення. Доставка приїхала на наступний день!',
+                productPurchased: 'Сироватка з вітаміном С'
+              },
+              {
+                author: 'Анастасія Бойко',
+                city: 'Одеса',
+                rating: 5,
+                comment: 'Аромат трояндового гідролату — це щось неймовірне. Жодного спирту, тільки чиста свіжість. Дякую за якісну українську косметику!',
+                productPurchased: 'Трояндовий гідролат'
+              }
+            ]
+          },
+          {
+            type: 'faq',
+            title: 'Часті запитання та відповіді',
+            items: [
+              {
+                question: 'Чому цей сайт зроблено як промо-лендінг, а не повноцінний магазин?',
+                answer: 'Цей лендінг створено на Payload CMS & TypeScript у рамках курсу практики. Він презентує філософію бренду, а всі транзакції та управління замовленнями реалізовано на нашому основному бекенді Python Django.'
+              },
+              {
+                question: 'Який термін придатності косметики без хімічних консервантів?',
+                answer: 'Завдяки натуральним рослинним антиоксидантам (екстракт розмарину, вітамін E) термін зберігання становить від 6 до 9 місяців у закритому вигляді та до 4 місяців після відкриття.'
+              },
+              {
+                question: 'Як оформити замовлення та отримати знижку?',
+                answer: 'Натисніть на будь-яку кнопку «Перейти до каталогу в Django-магазині», оберіть потрібні позиції та введіть промокод LIORAVIBE для отримання знижки -15%!'
+              },
+              {
+                question: 'Чи є засоби безпечними для алергіків?',
+                answer: 'Так, усі наші засоби є гіпоалергенними та протестованими. Проте ми завжди рекомендуємо провести патч-тест на зап\'ястку перед першим використанням будь-якого нового продукту.'
+              }
+            ]
+          },
+          {
+            type: 'cta',
+            title: 'Оберіть здоровий та природний догляд вже сьогодні',
+            text: 'Переходьте до нашого основного Django-магазину прямо зараз та скористайтеся промокодом на спеціальну знижку -15% для першого замовлення!',
+            promoCode: 'LIORAVIBE',
+            buttonText: 'Перейти до основного магазину на Django →',
+            buttonUrl: 'https://liorashop-django.example.com/'
+          }
+        ]
+      };
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function renderApp() {
+        const app = document.getElementById('app');
+        const { header, footer } = COMMON_DATA;
+
+        let contentHtml = '';
+        for (const block of PAGE_DATA.blocks) {
+          if (block.type === 'hero') {
+            const statsHtml = (block.stats || []).map(s => `
+              <div class="stat-item">
+                <h4>${escapeHtml(s.value)}</h4>
+                <p>${escapeHtml(s.label)}</p>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="hero-section" id="hero">
+                <div class="container hero-grid">
+                  <div class="hero-content">
+                    <div class="badge badge-sage">${escapeHtml(block.badge)}</div>
+                    <h1>${escapeHtml(block.title)}</h1>
+                    <p class="hero-subtitle">${escapeHtml(block.subtitle)}</p>
+                    <div class="hero-buttons">
+                      <a href="${escapeHtml(block.primaryButtonUrl)}" target="_blank" class="btn btn-primary">
+                        ${escapeHtml(block.primaryButtonText)}
+                      </a>
+                      <a href="${escapeHtml(block.secondaryButtonUrl)}" class="btn btn-outline">
+                        ${escapeHtml(block.secondaryButtonText)}
+                      </a>
+                    </div>
+                    <div class="hero-stats">${statsHtml}</div>
+                  </div>
+                  <div class="hero-visual">
+                    <div class="hero-card-showcase">
+                      <div class="hero-visual-icon">🧴✨</div>
+                      <div class="badge badge-rose" style="margin-bottom: 12px;">Ексклюзивна формула</div>
+                      <h3>Органічний догляд LioraShop</h3>
+                      <p>100% холодний віджим рослинних олій та свіжі гідролати без синтетичних ароматизаторів.</p>
+                      <a href="${escapeHtml(block.primaryButtonUrl)}" target="_blank" class="btn btn-rose btn-sm">
+                        Відкрити Django-магазин →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'whyUs') {
+            const rows = block.comparisonItems.map(item => `
+              <div class="comparison-row">
+                <div class="feature-name">
+                  <span>🌿</span>
+                  <strong>${escapeHtml(item.feature)}</strong>
+                </div>
+                <div class="liora-col">
+                  <strong>LioraShop:</strong> ${escapeHtml(item.lioraAdvantage)}
+                </div>
+                <div class="mass-col">
+                  <strong>Масмаркет:</strong> ${escapeHtml(item.massMarketDisadvantage)}
+                </div>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="why-us-section" id="why-us">
+                <div class="container">
+                  <div class="section-header">
+                    <span class="tag">${escapeHtml(block.sectionTag)}</span>
+                    <h2>${escapeHtml(block.title)}</h2>
+                    <p>${escapeHtml(block.description)}</p>
+                  </div>
+                  <div class="comparison-table-wrapper">
+                    <div class="comparison-row header-row">
+                      <div>Критерій оцінки</div>
+                      <div>🌿 Авторська косметика LioraShop</div>
+                      <div>❌ Звичайний фабричний масмаркет</div>
+                    </div>
+                    ${rows}
+                  </div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'benefits') {
+            const items = block.items.map(it => `
+              <div class="benefit-card">
+                <div class="benefit-icon">${it.icon}</div>
+                <h3>${escapeHtml(it.title)}</h3>
+                <p>${escapeHtml(it.text)}</p>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="benefits-section" id="benefits">
+                <div class="container">
+                  <h2>${escapeHtml(block.title)}</h2>
+                  <div class="benefits-grid">${items}</div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'productsShowcase') {
+            const icons = ['🧴', '💧', '🌸', '🧼'];
+            const prods = block.products.map((p, idx) => `
+              <div class="product-card">
+                <div class="product-media">
+                  ${p.badge ? `<span class="badge badge-rose badge-corner">${escapeHtml(p.badge)}</span>` : ''}
+                  <div class="product-icon-wrap">${icons[idx % icons.length]}</div>
+                </div>
+                <div class="product-body">
+                  <span class="product-category">${escapeHtml(p.category)}</span>
+                  <h3>${escapeHtml(p.title)}</h3>
+                  <p>${escapeHtml(p.description)}</p>
+                  <div class="product-footer">
+                    <div class="product-price">
+                      <span class="price-current">${escapeHtml(p.price)}</span>
+                      ${p.oldPrice ? `<span class="price-old">${escapeHtml(p.oldPrice)}</span>` : ''}
+                    </div>
+                    <a href="${escapeHtml(p.djangoLink)}" target="_blank" class="btn btn-primary btn-sm">В Django 🛍️</a>
+                  </div>
+                </div>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="products-section" id="products">
+                <div class="container">
+                  <div class="section-header">
+                    <span class="tag">${escapeHtml(block.tag)}</span>
+                    <h2>${escapeHtml(block.title)}</h2>
+                    <p>${escapeHtml(block.subtitle)}</p>
+                  </div>
+                  <div class="products-grid">${prods}</div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'reviews') {
+            const revs = block.reviewsList.map(r => `
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">«${escapeHtml(r.comment)}»</p>
+                <div class="review-author-wrap">
+                  <div class="author-avatar">${r.author[0]}</div>
+                  <div class="author-meta">
+                    <h4>${escapeHtml(r.author)}</h4>
+                    <span>${escapeHtml(r.city)} • ${escapeHtml(r.productPurchased)}</span>
+                  </div>
+                </div>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="reviews-section" id="reviews">
+                <div class="container">
+                  <h2>${escapeHtml(block.title)}</h2>
+                  <div class="reviews-grid">${revs}</div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'faq') {
+            const items = block.items.map((it, idx) => `
+              <div class="faq-item ${idx === 0 ? 'active' : ''}">
+                <div class="faq-question">
+                  <span>${escapeHtml(it.question)}</span>
+                  <span class="faq-toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <p>${escapeHtml(it.answer)}</p>
+                </div>
+              </div>
+            `).join('');
+
+            contentHtml += `
+              <section class="faq-section" id="faq">
+                <div class="container">
+                  <h2>${escapeHtml(block.title)}</h2>
+                  <div class="faq-list">${items}</div>
+                </div>
+              </section>
+            `;
+          } else if (block.type === 'cta') {
+            contentHtml += `
+              <section class="cta-section" id="cta">
+                <div class="container">
+                  <div class="cta-box">
+                    <div class="badge badge-rose" style="margin-bottom: 16px;">Спеціальна пропозиція</div>
+                    <h2>${escapeHtml(block.title)}</h2>
+                    <p>${escapeHtml(block.text)}</p>
+                    <div class="promo-pill">
+                      <span>🎁 Ваш промокод на -15%:</span>
+                      <span class="promo-code-text">${escapeHtml(block.promoCode)}</span>
+                    </div>
+                    <div>
+                      <a href="${escapeHtml(block.buttonUrl)}" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">
+                        ${escapeHtml(block.buttonText)}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            `;
+          }
+        }
+
+        app.innerHTML = `
+          <div class="fallback-banner">
+            <span>🌿 <strong>LioraShop Демо-режим:</strong> вітрина на ніжних відтінках крему, шавлії, троянди та вершкового золота.</span>
+          </div>
+          <header class="site-header">
+            <div class="container header-inner">
+              <div class="header-brand">
+                <span class="brand-flower">🌸</span>
+                <div class="brand-info">
+                  <h1>${escapeHtml(header.brandName)}</h1>
+                  <span>${escapeHtml(header.tagline)}</span>
+                </div>
+              </div>
+              <nav class="header-nav">
+                ${header.navItems.map(it => `<a href="${escapeHtml(it.url)}">${escapeHtml(it.label)}</a>`).join('')}
+              </nav>
+              <div class="header-actions">
+                <a href="${escapeHtml(header.djangoShopUrl)}" target="_blank" class="btn btn-rose btn-sm">Django-магазин 🛍️</a>
+              </div>
+            </div>
+          </header>
+          <main>${contentHtml}</main>
+          <footer class="site-footer">
+            <div class="container">
+              <div class="footer-grid">
+                <div class="footer-info">
+                  <h3>🌸 ${escapeHtml(footer.brandName)}</h3>
+                  <p>${escapeHtml(footer.description)}</p>
+                </div>
+                <div class="footer-django-notice">
+                  <strong>Зв'язок із бекендом на Python Django:</strong>
+                  <p>${escapeHtml(footer.djangoNotice)}</p>
+                  <p style="margin-top: 8px;">
+                    <a href="${escapeHtml(header.djangoShopUrl)}" target="_blank">Перейти до каталогу та кошика в Django →</a>
+                  </p>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <span>${escapeHtml(footer.copyright)}</span>
+                <div class="footer-socials">
+                  ${footer.socialLinks.map(s => `<a href="${escapeHtml(s.url)}" target="_blank">${escapeHtml(s.name)}</a>`).join('')}
+                </div>
+              </div>
+            </div>
+          </footer>
+        `;
+
+        // FAQ accordion click handling
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isOpen) item.classList.add('active');
+          });
+        });
+      }
+
+      function showRoleModal() {
+        const modalContainer = document.getElementById('role-modal-container');
+        modalContainer.innerHTML = `
+          <div class="role-modal-overlay">
+            <div class="role-modal-card">
+              <div class="logo-badge">🌸</div>
+              <h2>LioraShop</h2>
+              <p class="subtitle">Ласкаво просимо! Оберіть режим перегляду для демонстрації:</p>
+              <div class="role-options-grid">
+                <div class="role-card-btn" id="modal-btn-guest">
+                  <div class="role-card-icon">🛍️</div>
+                  <h3>Я Користувач</h3>
+                  <p>Переглянути ніжний промо-лендінг, переваги натурального догляду та перейти до покупок у Django.</p>
+                  <span class="btn btn-primary btn-sm" style="margin-top: auto; width: 100%;">Увійти як клієнт →</span>
+                </div>
+                <div class="role-card-btn" id="modal-btn-admin">
+                  <div class="role-card-icon">⚙️</div>
+                  <h3>Я Адміністратор</h3>
+                  <p>Перейти до адмін-панелі Payload CMS для керування контентом та базою Neon PostgreSQL.</p>
+                  <span class="btn btn-outline btn-sm" style="margin-top: auto; width: 100%;">Відкрити адмінку CMS 🔐</span>
+                </div>
+              </div>
+              <div class="role-modal-footer">
+                💡 Проєкт практики: Fullstack-застосунок на Payload CMS, TypeScript та Neon PostgreSQL
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('modal-btn-guest').addEventListener('click', () => {
+          modalContainer.innerHTML = '';
+          renderFloatingPill('guest');
+          renderApp();
+        });
+
+        document.getElementById('modal-btn-admin').addEventListener('click', () => {
+          modalContainer.innerHTML = '';
+          renderFloatingPill('admin');
+          renderApp();
+          alert('Адмін-панель Payload CMS знаходиться за адресою: http://localhost:3000/admin\n\nДля запуску CMS виконайте: npm run dev:cms');
+        });
+      }
+
+      function renderFloatingPill(role) {
+        let pill = document.getElementById('role-floating-pill');
+        if (!pill) {
+          pill = document.createElement('div');
+          pill.id = 'role-floating-pill';
+          pill.className = 'role-floating-pill';
+          document.body.appendChild(pill);
+        }
+        pill.innerHTML = `
+          <span>Роль: <strong>${role === 'admin' ? '⚙️ Адміністратор' : '🌸 Клієнт'}</strong></span>
+          <button id="btn-switch-role">Змінити</button>
+          <a href="http://localhost:3000/admin" target="_blank" style="font-size: 0.75rem; text-decoration: underline; color: var(--color-sage-dark);">CMS ↗</a>
+        `;
+        document.getElementById('btn-switch-role').addEventListener('click', showRoleModal);
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        showRoleModal();
+      });
+    </script>
+  </body>
+</html>
