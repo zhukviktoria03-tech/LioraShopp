@@ -7,6 +7,13 @@ export const Users: CollectionConfig = {
     defaultColumns: ['name', 'email', 'role'],
   },
   auth: true,
+  access: {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
+    admin: () => true,
+  },
   fields: [
     {
       name: 'name',

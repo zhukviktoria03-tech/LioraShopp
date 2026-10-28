@@ -3,6 +3,10 @@ import type { GlobalConfig } from 'payload'
 export const Header: GlobalConfig = {
   slug: 'header',
   label: 'Шапка сайту (Header)',
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'brandName',

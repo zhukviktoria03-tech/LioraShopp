@@ -3,6 +3,10 @@ import type { GlobalConfig } from 'payload'
 export const Footer: GlobalConfig = {
   slug: 'footer',
   label: 'Підвал сайту (Footer)',
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'brandName',
