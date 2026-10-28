@@ -2,11 +2,9 @@ import type { UserRole } from '../types'
 
 export type RoleSelectCallback = (role: UserRole) => void
 
-// Визначаємо URL адмінки динамічно:
-// 1. Спочатку перевіряємо env змінну VITE_API_URL (Vercel)
-// 2. Якщо не задана — відкриваємо input-модал де юзер сам вводить URL
-const CMS_BASE = import.meta.env.VITE_API_URL || ''
-const ADMIN_URL = CMS_BASE ? `${CMS_BASE}/admin` : ''
+// URL адмінки — з env змінної або хардкодний fallback на задеплоєну CMS
+const CMS_BASE = import.meta.env.VITE_API_URL || 'https://liora-shopp.vercel.app'
+const ADMIN_URL = `${CMS_BASE}/admin`
 
 export function initRoleModal(onSelectRole: RoleSelectCallback) {
   const container = document.getElementById('role-modal-container')
