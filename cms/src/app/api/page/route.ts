@@ -35,12 +35,10 @@ export async function GET(request: NextRequest) {
 
     const pageDoc = result.docs[0]
 
-    // Трансформуємо блоки у чистий плоский вигляд для фронтенду
-    const cleanBlocks = (pageDoc.layout || []).map((block: any) => {
-      const type = block.blockType || block.type
+    const cleanBlocks = (pageDoc.layout || []).map((block: Record<string, unknown>) => {
       const { blockType, ...rest } = block
       return {
-        type,
+        type: blockType || (block as Record<string, unknown>).type,
         ...rest,
       }
     })
@@ -61,12 +59,13 @@ export async function GET(request: NextRequest) {
         'Access-Control-Allow-Headers': 'Content-Type',
       },
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Помилка в /api/page:', error)
+    const msg = error instanceof Error ? error.message : String(error)
     return NextResponse.json(
       {
         error: 'Помилка отримання сторінки з бази даних Neon PostgreSQL',
-        details: error?.message || String(error),
+        details: msg,
       },
       {
         status: 500,
